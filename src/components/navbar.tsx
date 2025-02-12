@@ -122,12 +122,12 @@ const Navbar: React.FC = () => {
         {/* Mobile menu */}
         {isOpen && (
           <div className="md:hidden">
-            <div 
+            <div
               className="fixed inset-0 bg-black/50 backdrop-blur-sm"
               onClick={closeMenu}
               role="presentation"
             />
-            <div 
+            <div
               className="fixed top-0 right-0 h-full w-64 bg-[#0d0d21] transform transition-transform duration-300 ease-in-out border-l border-white/10"
               role="dialog"
               aria-modal="true"

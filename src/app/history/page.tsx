@@ -5,11 +5,11 @@ import { Table } from '@/components/ui/table';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { 
-  DropdownMenu, 
-  DropdownMenuContent, 
-  DropdownMenuItem, 
-  DropdownMenuTrigger 
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu';
 
 // Mock transaction data
@@ -28,14 +28,14 @@ export default function TransactionHistoryPage() {
   const [filter, setFilter] = useState('All');
   const itemsPerPage = 10;
 
-  const filteredData = mockTransactionData.filter(item => 
+  const filteredData = mockTransactionData.filter(item =>
     (filter === 'All' || item.type === filter) &&
     (item.asset.toLowerCase().includes(searchTerm.toLowerCase()) ||
-     item.type.toLowerCase().includes(searchTerm.toLowerCase()))
+      item.type.toLowerCase().includes(searchTerm.toLowerCase()))
   );
 
   const paginatedData = filteredData.slice(
-    (currentPage - 1) * itemsPerPage, 
+    (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
 
@@ -46,8 +46,8 @@ export default function TransactionHistoryPage() {
       <CardHeader>
         <CardTitle>Transaction History</CardTitle>
         <div className="flex justify-between items-center space-x-4">
-          <Input 
-            placeholder="Search transactions" 
+          <Input
+            placeholder="Search transactions"
             value={searchTerm}
             onChange={(e) => {
               setSearchTerm(e.target.value);
@@ -99,9 +99,9 @@ export default function TransactionHistoryPage() {
                 <td>
                   <span className={`
                     px-2 py-1 rounded-full text-xs
-                    ${item.status === 'Completed' ? 'bg-green-100 text-green-800' : 
-                      item.status === 'Pending' ? 'bg-yellow-100 text-yellow-800' : 
-                      'bg-red-100 text-red-800'}
+                    ${item.status === 'Completed' ? 'bg-green-100 text-green-800' :
+                      item.status === 'Pending' ? 'bg-yellow-100 text-yellow-800' :
+                        'bg-red-100 text-red-800'}
                   `}>
                     {item.status}
                   </span>
@@ -110,19 +110,19 @@ export default function TransactionHistoryPage() {
             ))}
           </tbody>
         </Table>
-        
+
         <div className="flex justify-between items-center mt-4">
           <div>
             Page {currentPage} of {totalPages}
           </div>
           <div className="space-x-2">
-            <Button 
+            <Button
               onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
               disabled={currentPage === 1}
             >
               Previous
             </Button>
-            <Button 
+            <Button
               onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
               disabled={currentPage === totalPages}
             >

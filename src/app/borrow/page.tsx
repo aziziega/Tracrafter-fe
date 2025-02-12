@@ -60,9 +60,9 @@ export default function BorrowPage() {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [sortKey, setSortKey] = useState<
     | keyof Pick<
-        BorrowDataItem,
-        "availableToBorrow" | "borrowRate" | "collateralRequired"
-      >
+      BorrowDataItem,
+      "availableToBorrow" | "borrowRate" | "collateralRequired"
+    >
     | null
   >(null);
   const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
